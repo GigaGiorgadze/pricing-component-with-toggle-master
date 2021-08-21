@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"> 
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Our Pricing</h1>
+  <div class="toggle">
+    <span>Annually</span>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+    <span>
+    Monthly
+    </span>
+  </div>
+  <main>
+    <div class="card">
+      <p>Basic</p>
+      <h1 id='basic'>&dollar;199.99</h1>
+      <hr>
+      <p>500GB Storage</p>
+      <hr>
+      <p>2 Users Allowed</p>
+      <hr>
+      <p>Send up to 3 GB</p>
+      <hr>
+      <button>Learn More</button>
+    </div>
+    <div class="card">
+      <p>Professional</p>
+      <h1 id="pro">&dollar;249.99</h1>
+      <hr>
+      <p>1TB Storage</p>
+      <hr>
+      <p>5 Users Allowed</p>
+      <hr>
+      <p>Send up to 10 GB</p>
+      <hr>
+      <button>Learn More</button>
+    </div>
+    <div class="card">
+      <p>Master</p>
+      <h1 id="master">&dollar;399.99</h1>
+      <hr>
+      <p>2TB Storage</p>
+      <hr>
+      <p>10 Users Allowed</p>
+      <hr>
+      <p>Send up to 20 GB</p>
+      <hr>
+      <button>Learn More</button>
+    </div>
+  </main>
+  <script>
+    const toggle = document.querySelector('input')
+    const basic = document.querySelector('#basic')
+    const pro = document.querySelector('#pro')
+    const master = document.querySelector('#master')
+    const check = () => {
+      if(toggle.checked){
+        basic.innerHTML = '&dollar;19.99'
+        pro.innerHTML = '&dollar;24.99'
+        master.innerHTML = '&dollar;39.99'
+      }else{
+        basic.innerHTML =   "&dollar;199.99"
+        pro.innerHTML = '  &dollar;249.99'
+        master.innerHTML = '&dollar;399.99'
+      }
+    }
+    toggle.addEventListener('onChange', check)
+    document.body.addEventListener('keypress', e =>{
+     
+      if(e.keyCode === 32 || e.keyCode === 13){
+        if(toggle.checked){
+          toggle.checked = false
+          check()
+        }else{
+          toggle.checked = true
+          check()
+        }
+      }else{
+        return
+      }
+    })
+  </script>
+</body>
+</html>
